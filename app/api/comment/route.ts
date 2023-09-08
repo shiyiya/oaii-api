@@ -18,7 +18,7 @@ export async function POST(req: Request): Promise<Response> {
 export async function GET(req: Request): Promise<Response> {
   const { searchParams } = new URL(req.url);
 
-  const comments = await prisma.findMany({
+  const comments = await prisma.comment.findMany({
     where: { post_id: searchParams.get('post_id') }
   })
 
