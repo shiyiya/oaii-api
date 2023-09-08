@@ -14,3 +14,13 @@ export async function POST(req: Request): Promise<Response> {
 
   return NextResponse.json(created)
 }
+
+export async function GET(req: Request): Promise<Response> {
+  const { searchParams } = new URL(req.url);
+
+  const comments = await prisma.findMany({
+    where: { post_id: searchParams.get('post_id') }
+  })
+
+  return NextResponse.json(comments)
+}
