@@ -20,7 +20,7 @@ model Comment {
   content       String  @db.Text
   mail          String?
   createdAt     DateTime @default(now())
-  ip            String
+  ip            String?
 }
 
 model User {
