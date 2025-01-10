@@ -20,7 +20,7 @@ model Biu {
   content       String  @db.Text
   createdAt     DateTime @default(now())
   ip            String?
-  video_time     DateTime
+  video_time    Float
 }
 
 model Love {
