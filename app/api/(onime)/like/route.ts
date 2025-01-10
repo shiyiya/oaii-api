@@ -19,15 +19,15 @@ export async function POST(req: Request): Promise<Response> {
 }
 
 export async function DELETE(req: Request): Promise<Response> {
-  const { searchParams } = new URL(req.url);
-  const post_id = searchParams.get("post_id");
+  // const { searchParams } = new URL(req.url);
+  // const post_id = searchParams.get("post_id");
 
-  if (!post_id) return NextResponse.error();
+  // if (!post_id) return NextResponse.error();
 
-  await prisma.like.update({
-    where: { post_id },
-    update: { data: { count: { decrement: 1 } } },
-  });
+  // await prisma.like.update({
+  //   where: { post_id },
+  //   update: { data: { count: { decrement: 1 } } },
+  // });
 
   return new NextResponse("ok");
 }
