@@ -23,9 +23,8 @@ model Biu {
   video_time     DateTime
 }
 
-model Like {
-  id            String    @id @default(cuid())
-  post_id       String
+model Love {
+  post_id       String    @id
   count         Int
 }
 
