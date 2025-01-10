@@ -3,6 +3,19 @@ import { NextResponse } from "next/server";
 
 // export const runtime = "edge";
 
+export async function GET(req: Request): Promise<Response> {
+  const { searchParams } = new URL(req.url);
+  const post_id = searchParams.get("post_id");
+
+  if (!post_id) return NextResponse.error();
+
+  const love = await prisma.love.findUnique({
+    where: { post_id },
+  });
+
+  return NextResponse.json(love?.count || 0);
+}
+
 export async function POST(req: Request): Promise<Response> {
   const { post_id } = await req.json();
 
@@ -26,7 +39,7 @@ export async function DELETE(req: Request): Promise<Response> {
 
   await prisma.love.update({
     where: { post_id },
-    update: { data: { count: { decrement: 1 } } },
+    data: { count: { decrement: 1 } },
   });
 
   return new NextResponse("ok");
