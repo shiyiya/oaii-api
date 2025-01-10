@@ -23,7 +23,7 @@ export async function GET(req: Request): Promise<Response> {
     where: { post_id },
   });
 
-  return NextResponse.json(biu);
+  return NextResponse.json(post_id);
 }
 
 // fetch('https://oaii.vercel.app/api/comment', {
