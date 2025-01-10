@@ -28,7 +28,7 @@ export async function POST(req: Request): Promise<Response> {
     },
   });
 
-  return new NextResponse("ok");
+  return NextResponse.json("ok");
 }
 
 export async function DELETE(req: Request): Promise<Response> {
@@ -42,7 +42,7 @@ export async function DELETE(req: Request): Promise<Response> {
     data: { count: { decrement: 1 } },
   });
 
-  return new NextResponse("ok");
+  return NextResponse.json("ok");
 }
 
 // fetch('https://oaii.vercel.app/api/comment', {
