@@ -24,7 +24,7 @@ export async function DELETE(req: Request): Promise<Response> {
 
   if (!post_id) return NextResponse.error();
 
-  await prisma.post.update({
+  await prisma.like.update({
     where: { post_id },
     update: { data: { count: { decrement: 1 } } },
   });
