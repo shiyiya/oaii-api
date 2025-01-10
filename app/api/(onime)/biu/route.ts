@@ -21,6 +21,7 @@ export async function GET(req: Request): Promise<Response> {
 
   const biu = await prisma.biu.findMany({
     where: { post_id },
+    orderBy: { createdAt: "desc" },
   });
 
   return NextResponse.json(biu);
